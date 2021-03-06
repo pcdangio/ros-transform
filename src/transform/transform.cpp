@@ -23,10 +23,10 @@ transform_t::transform_t(const Eigen::Quaterniond& rotation)
     transform_t::m_translation.setZero();
     transform_t::m_rotation = rotation;
 }
-transform_t::transform_t(const transform_msgs::transform& transform_message)
+transform_t::transform_t(const geometry_msgs_ext::transform& transform_message)
 {
-    transform_t::m_translation = {transform_message.x, transform_message.y, transform_message.z};
-    transform_t::m_rotation = {transform_message.qw, transform_message.qx, transform_message.qy, transform_message.qz};
+    transform_t::m_translation = {transform_message.translation.x, transform_message.translation.y, transform_message.translation.z};
+    transform_t::m_rotation = {transform_message.rotation.qw, transform_message.rotation.qx, transform_message.rotation.qy, transform_message.rotation.qz};
 }
 
 // MODIFIERS

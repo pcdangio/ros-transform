@@ -3,7 +3,7 @@
 #ifndef TRANSFORM___TRANSFORM_H
 #define TRANSFORM___TRANSFORM_H
 
-#include <transform_msgs/transform.h>
+#include <geometry_msgs_ext/transform.h>
 
 #include <eigen3/Eigen/Dense>
 
@@ -29,7 +29,7 @@ public:
     transform_t(const Eigen::Quaterniond& rotation);
     /// \brief Instantiates a new transformation_t object from a transform message.
     /// \param transform_message The message to instantiate from.
-    transform_t(const transform_msgs::transform& transform_message);
+    transform_t(const geometry_msgs_ext::transform& transform_message);
 
     // MODIFIERS
     /// \brief Calculates the inverse of the transform.

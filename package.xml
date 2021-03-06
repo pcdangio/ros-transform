@@ -49,9 +49,7 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>transform_msgs</build_depend>
-  <build_export_depend>transform_msgs</build_export_depend>
-  <exec_depend>transform_msgs</exec_depend>
+  <depend>geometry_msgs_ext</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
