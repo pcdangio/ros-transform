@@ -101,3 +101,18 @@ const Eigen::Quaterniond& transform_t::rotation() const
 {
     return transform_t::m_rotation;
 }
+
+// EXPORT
+geometry_msgs_ext::transform transform_t::to_message() const
+{
+    geometry_msgs_ext::transform message;
+    message.translation.x = transform_t::m_translation.x();
+    message.translation.y = transform_t::m_translation.y();
+    message.translation.z = transform_t::m_translation.z();
+    message.rotation.qw = transform_t::m_rotation.w();
+    message.rotation.qx = transform_t::m_rotation.x();
+    message.rotation.qy = transform_t::m_rotation.y();
+    message.rotation.qz = transform_t::m_rotation.z();
+
+    return message;
+}

@@ -59,6 +59,11 @@ public:
     /// \brief Gets the rotation component of this transform.
     /// \returns A const reference to the rotation component.
     const Eigen::Quaterniond& rotation() const;
+
+    // EXPORT
+    /// \brief Gets a ROS message representing the transform.
+    /// \returns The ROS transform message.
+    geometry_msgs_ext::transform to_message() const;
     
 private:
     // VARIABLES
