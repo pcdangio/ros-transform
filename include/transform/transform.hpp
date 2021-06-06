@@ -42,7 +42,8 @@ public:
     void transform(transform_t& transform) const;
     /// \brief Transforms a 3D point or vector in place.
     /// \param vector The 3D point or vector to transform.
-    void transform(Eigen::Vector3d& vector) const;
+    /// \param rotate_only Indicates if the transform should only perform a rotation.
+    void transform(Eigen::Vector3d& vector, bool rotate_only = false) const;
     /// \brief Transforms a 3D pose in place.
     /// \param position The 3D position of the pose.
     /// \param orientation The 3D euler angle representation of the pose orientation.
