@@ -46,6 +46,16 @@ transform_t transform_t::inverse() const
 }
 
 // APPLICATIONS
+void transform_t::rotate(Eigen::Vector3d& vector) const
+{
+    // Apply this transform's rotation to the original vector.
+    vector = transform_t::m_rotation * vector;
+}
+void transform_t::translate(Eigen::Vector3d& vector) const
+{
+    // Add the transform's translation to the rotated vector.
+    vector += transform_t::m_translation;
+}
 void transform_t::transform(transform_t& transform) const
 {
     // Apply this transform's rotation to the original transform.
@@ -57,16 +67,13 @@ void transform_t::transform(transform_t& transform) const
     // Add this transform's translation to the now rotated original translation.
     transform.m_translation += transform_t::m_translation;
 }
-void transform_t::transform(Eigen::Vector3d& vector, bool rotate_only) const
+void transform_t::transform(Eigen::Vector3d& vector) const
 {
     // Apply this transform's rotation to the original vector.
     vector = transform_t::m_rotation * vector;
 
-    if(!rotate_only)
-    {
-        // Add the transform's translation to the rotated vector.
-        vector += transform_t::m_translation;
-    }
+    // Add the transform's translation to the rotated vector.
+    vector += transform_t::m_translation;
 }
 void transform_t::transform(Eigen::Vector3d& position, Eigen::Vector3d& orientation)
 {

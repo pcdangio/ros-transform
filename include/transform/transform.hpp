@@ -37,13 +37,18 @@ public:
     transform_t inverse() const;
 
     // APPLICATIONS
+    /// \brief Rotates a 3D point or vector in place.
+    /// \param vector The 3D point or vector to rotate.
+    void rotate(Eigen::Vector3d& vector) const;
+    /// \brief Translates a 3D point or vector in place.
+    /// \param vector The 3D point or vector to translate.
+    void translate(Eigen::Vector3d& vector) const;
     /// \brief Performs an in-place chain on top of another transform.
     /// \param transform The transform to chain in place.
     void transform(transform_t& transform) const;
     /// \brief Transforms a 3D point or vector in place.
     /// \param vector The 3D point or vector to transform.
-    /// \param rotate_only Indicates if the transform should only perform a rotation.
-    void transform(Eigen::Vector3d& vector, bool rotate_only = false) const;
+    void transform(Eigen::Vector3d& vector) const;
     /// \brief Transforms a 3D pose in place.
     /// \param position The 3D position of the pose.
     /// \param orientation The 3D euler angle representation of the pose orientation.
